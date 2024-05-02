@@ -1,0 +1,90 @@
+MySQL Shell 8.0.36
+
+Copyright (c) 2016, 2023, Oracle and/or its affiliates.
+Oracle is a registered trademark of Oracle Corporation and/or its affiliates.
+Other names may be trademarks of their respective owners.
+
+Type '\help' or '\?' for help; '\quit' to exit.
+ MySQL  JS > \sql
+Switching to SQL mode... Commands end with ;
+ MySQL  SQL > \connect --mc root@localhost
+Creating a Classic session to 'root@localhost'
+Fetching global names for auto-completion... Press ^C to stop.
+Your MySQL connection id is 11
+Server version: 8.0.36 MySQL Community Server - GPL
+No default schema selected; type \use <schema> to set one.
+ MySQL  localhost:3306 ssl  SQL > use tbd_3;
+Default schema set to `tbd_3`.
+Fetching global names, object names from `tbd_3` for auto-completion... Press ^C to stop.
+ MySQL  localhost:3306 ssl  tbd_3  SQL > show tables;
++-----------------+
+| Tables_in_tbd_3 |
++-----------------+
+| account         |
+| actor           |
+| bitacora        |
++-----------------+
+3 rows in set (0.0017 sec)
+ MySQL  localhost:3306 ssl  tbd_3  SQL > select generar_actorid();
++-------------------+
+| generar_actorid() |
++-------------------+
+|              NULL |
++-------------------+
+1 row in set (0.0013 sec)
+ MySQL  localhost:3306 ssl  tbd_3  SQL > select max(actor_id) from actor;
++---------------+
+| max(actor_id) |
++---------------+
+|           202 |
++---------------+
+1 row in set (0.0006 sec)
+ MySQL  localhost:3306 ssl  tbd_3  SQL > select * from actor where actor_id= 204;
+Empty set (0.0007 sec)
+ MySQL  localhost:3306 ssl  tbd_3  SQL > insert into actor(first_name, last_name)
+                                      -> value('juan', perez Jolote');
+                                      '> select * from actor where actor_id= 204;
+                                      '> select max(actor_id) from actor;
+                                      '>
+                                      '>
+                                      '>
+                                      '> show tables;
+                                      '> '
+                                      -> ';
+                                      '> '';
+                                      '> ';
+ERROR: 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'Jolote');
+select * from actor where actor_id= 204;
+select max(actor_id) from act' at line 2
+ MySQL  localhost:3306 ssl  tbd_3  SQL > insert into actor(first_name, last_name) value('juan', 'perez Jolote');
+ERROR: 1305 (42000): FUNCTION tbd_3.genarar_actorid does not exist
+ MySQL  localhost:3306 ssl  tbd_3  SQL > insert into actor_id(first_name, last_name) value('juan', 'perez Jolote');
+ERROR: 1146 (42S02): Table 'tbd_3.actor_id' doesn't exist
+ MySQL  localhost:3306 ssl  tbd_3  SQL > insert into actor(first_name, last_name) value('juan', 'perez Jolote');
+ERROR: 1305 (42000): FUNCTION tbd_3.genarar_actorid does not exist
+ MySQL  localhost:3306 ssl  tbd_3  SQL > select max(actor_id) from actor;
++---------------+
+| max(actor_id) |
++---------------+
+|           202 |
++---------------+
+1 row in set (0.0006 sec)
+ MySQL  localhost:3306 ssl  tbd_3  SQL > select generar_actorid();
++-------------------+
+| generar_actorid() |
++-------------------+
+|              NULL |
++-------------------+
+1 row in set (0.0012 sec)
+ MySQL  localhost:3306 ssl  tbd_3  SQL > desc actor;
++-------------+-------------------+------+-----+-------------------+-----------------------------------------------+
+| Field       | Type              | Null | Key | Default           | Extra                                         |
++-------------+-------------------+------+-----+-------------------+-----------------------------------------------+
+| actor_id    | smallint unsigned | NO   | PRI | NULL              | auto_increment                                |
+| first_name  | varchar(45)       | NO   |     | NULL              |                                               |
+| last_name   | varchar(45)       | NO   | MUL | NULL              |                                               |
+| last_update | timestamp         | NO   |     | CURRENT_TIMESTAMP | DEFAULT_GENERATED on update CURRENT_TIMESTAMP |
+| correo      | varchar(45)       | YES  |     | NULL              |                                               |
++-------------+-------------------+------+-----+-------------------+-----------------------------------------------+
+5 rows in set (0.0020 sec)
+ MySQL  localhost:3306 ssl  tbd_3  SQL >
